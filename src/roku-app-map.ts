@@ -1,4 +1,4 @@
-import { App } from "roku-client/dist/client";
+import { RokuApp } from "roku-client";
 
 export interface MappedApp {
   id: number;
@@ -13,16 +13,16 @@ function hashCode(s: string) {
     return a & a;
   }, 0);
 }
-export function createMappedApps(apps: App[]): MappedApp[] {
+export function createMappedApps(apps: RokuApp[]): MappedApp[] {
   return apps.map((a) => ({ ...a, rokuAppId: a.id, id: hashCode(a.id) }));
 }
-export function asMappedApp(app: App): MappedApp {
+export function asMappedApp(app: RokuApp): MappedApp {
   return createMappedApps([app])[0];
 }
 
 export class RokuAppMap {
   private readonly mappedApps: MappedApp[];
-  constructor(private readonly apps: App[]) {
+  constructor(private readonly apps: RokuApp[]) {
     this.mappedApps = createMappedApps(apps);
   }
 

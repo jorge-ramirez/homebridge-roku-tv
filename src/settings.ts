@@ -6,5 +6,5 @@ export const PLATFORM_NAME = "RokuTV";
 /**
  * This must match the name of your plugin as defined the package.json
  */
-export const PLUGIN_NAME = "homebridge-roku-tv";
+export const PLUGIN_NAME = "homebridge-roku-tvs";
 export const homeScreenActiveId = "562859";
